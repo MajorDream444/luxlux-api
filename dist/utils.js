@@ -1,5 +1,5 @@
 import { isNil, keyBy, omitBy } from 'lodash';
-import { CHAINS } from '@debank-lux/common';
+import { CHAINS } from '@debank/common';
 import { decode } from 'qss';
 const chainsDict = keyBy(CHAINS, 'serverId');
 export const getChain = (chainId) => {

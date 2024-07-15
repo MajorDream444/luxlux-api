@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.19.1",
-    "@debank-lux/common": "^0.3.9",
+    "@debank/common": "^0.3.9",
     "@types/jest": "^29.0.3",
     "@types/lodash": "^4.14.185",
     "@types/node": "^18.7.18",
@@ -44,7 +44,7 @@
     "prepare": "husky install"
   },
   "peerDependencies": {
-    "@debank-lux/common": "^0.3.9",
+    "@debank/common": "^0.3.9",
     "@luxfi/lux-sign": ">= 0.3"
   },
   "author": "",
