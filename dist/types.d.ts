@@ -1,4 +1,4 @@
-import { CHAINS_ENUM } from '@debank/common';
+import { CHAINS_ENUM } from '@luxfi/common';
 export interface Chain {
     id: number;
     name: string;

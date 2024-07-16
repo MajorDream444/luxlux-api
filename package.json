@@ -1,6 +1,6 @@
 {
   "name": "@luxfi/lux-api",
-  "version": "0.7.22",
+  "version": "0.7.23",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.19.1",
-    "@debank/common": "^0.3.9",
+    "@luxfi/common": "^0.3.9",
     "@types/jest": "^29.0.3",
     "@types/lodash": "^4.14.185",
     "@types/node": "^18.7.18",
@@ -38,13 +38,10 @@
   },
   "scripts": {
     "test": "jest test/*.spec.ts --env=./test/jsdom-env-hack.js",
-    "build": "rimraf dist && tsc",
-    "preversion": "npm run build",
-    "prepublishOnly": "npm run build && npm run test",
-    "prepare": "husky install"
+    "build": "rimraf dist && tsc"
   },
   "peerDependencies": {
-    "@debank/common": "^0.3.9",
+    "@luxfi/common": "^0.3.9",
     "@luxfi/lux-sign": ">= 0.3"
   },
   "author": "",

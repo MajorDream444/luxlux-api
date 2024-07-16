@@ -3,7 +3,7 @@
 ## Install
 
 ```bash
-npm install @luxfi/lux-api @debank/common
+npm install @luxfi/lux-api @luxfi/common
 ```
 
 ## Usage
