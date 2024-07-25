@@ -1,6 +1,6 @@
 {
-  "name": "@luxfi/lux-api",
-  "version": "0.7.23",
+  "name": "@luxwallet/lux-api",
+  "version": "1.8.11",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -45,7 +45,7 @@
     "@luxfi/lux-sign": ">= 0.3"
   },
   "author": "",
-  "description": "",
+  "description": "## Install",
   "license": "UNLICENSED",
   "lint-staged": {
     "*.{ts,css,md}": "prettier --write"
