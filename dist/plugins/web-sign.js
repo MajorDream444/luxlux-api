@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import * as sign from '@luxfi/lux-sign/umd/sign-wasm-lux';
+import * as sign from '@luxwallet/lux-sign/umd/sign-wasm-lux';
 import { SIGN_HDS } from '../const';
 function getWebHf() {
     var _a, _b, _c, _d;

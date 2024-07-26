@@ -1,9 +1,9 @@
-import { CHAINS } from '@luxfi/common';
+import { CHAINS } from '@luxwallet/common';
 import { AxiosRequestConfig } from 'axios';
-export declare const getChain: (chainId?: string) => import("@luxfi/common").Chain | null;
-export declare const getChainByNetwork: (network?: string | number) => import("@luxfi/common").Chain | null;
-export declare const INITIAL_OPENAPI_URL = "https://api.lux.io";
-export declare const INITIAL_TESTNET_OPENAPI_URL = "https://api.testnet.lux.io/";
+export declare const getChain: (chainId?: string) => import("@luxwallet/common").Chain | null;
+export declare const getChainByNetwork: (network?: string | number) => import("@luxwallet/common").Chain | null;
+export declare const INITIAL_OPENAPI_URL = "https://api.rabby.io";
+export declare const INITIAL_TESTNET_OPENAPI_URL = "https://api.testnet.rabby.io/";
 export { CHAINS };
 export declare function genSignParams(config: AxiosRequestConfig): {
     method: any;

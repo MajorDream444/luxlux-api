@@ -1,5 +1,5 @@
 import { isNil, keyBy, omitBy } from 'lodash';
-import { CHAINS } from '@luxfi/common';
+import { CHAINS } from '@luxwallet/common';
 import { decode } from 'qss';
 const chainsDict = keyBy(CHAINS, 'serverId');
 export const getChain = (chainId) => {
@@ -16,8 +16,8 @@ export const getChainByNetwork = (network) => {
     network = network.toString();
     return chainNetworkDict[network.startsWith('0x') ? +network : network];
 };
-export const INITIAL_OPENAPI_URL = 'https://api.lux.io';
-export const INITIAL_TESTNET_OPENAPI_URL = 'https://api.testnet.lux.io/';
+export const INITIAL_OPENAPI_URL = 'https://api.rabby.io';
+export const INITIAL_TESTNET_OPENAPI_URL = 'https://api.testnet.rabby.io/';
 export { CHAINS };
 export function genSignParams(config) {
     var _a, _b, _c;

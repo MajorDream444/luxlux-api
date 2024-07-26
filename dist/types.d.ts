@@ -1,4 +1,4 @@
-import { CHAINS_ENUM } from '@luxfi/common';
+import { CHAINS_ENUM } from '@luxwallet/common';
 export interface Chain {
     id: number;
     name: string;
