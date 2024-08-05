@@ -1,6 +1,6 @@
 {
   "name": "@luxwallet/lux-api",
-  "version": "1.8.12",
+  "version": "1.8.13",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
