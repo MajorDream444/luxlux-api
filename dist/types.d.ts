@@ -1197,8 +1197,8 @@ export interface NodeStatus {
     tags: string[];
     official_node_height: number;
     official_node_timestamp: number;
-    lux_node_height: number;
-    lux_data_service_height: number;
+    rabby_node_height: number;
+    rabby_data_service_height: number;
     chain: {
         id: string;
         network_id: number;
@@ -1226,7 +1226,91 @@ interface NodeDetails {
     tag: string[];
 }
 export interface NodeStatusDetail {
-    lux_rpc: NodeServiceData[];
-    lux_data_service: NodeServiceData[];
+    rabby_rpc: NodeServiceData[];
+    rabby_data_service: NodeServiceData[];
+}
+interface BridgeItem {
+    id: string;
+    name: string;
+    logo_url: string;
+}
+export interface BridgeAggregator {
+    id: string;
+    name: string;
+    logo_url: string;
+    bridge_list: BridgeItem[];
+}
+export interface BridgeTokenPair {
+    aggregator_id: string;
+    from_token: TokenItem;
+    to_token: TokenItem;
+    from_token_amount: number;
+    from_token_raw_amount_hex_str: string;
+    from_token_usd_value: number;
+}
+export interface BridgeQuote {
+    aggregator: Exclude<BridgeAggregator, 'bridge_list'>;
+    bridge_id: string;
+    bridge: BridgeItem;
+    to_token_amount: number;
+    to_token_raw_amount: number;
+    to_token_raw_amount_hex_str: string;
+    gas_fee: {
+        raw_amount_hex_str: string;
+        usd_value: number;
+    };
+    protocol_fee: {
+        raw_amount_hex_str: string;
+        usd_value: number;
+    };
+    rabby_fee: {
+        raw_amount_hex_str: string;
+        usd_value: number;
+    };
+    duration: number;
+    routePath: string;
+    approve_contract_id: string;
+    tx: {
+        chainId: number;
+        data: string;
+        from: string;
+        gasLimit: string;
+        gasPrice: string;
+        to: string;
+        value: string;
+    };
+}
+export interface BridgeHistory {
+    aggregator: Exclude<BridgeAggregator, 'bridge_list'>;
+    bridge: BridgeItem;
+    from_token: TokenItem;
+    to_token: TokenItem;
+    quote: {
+        pay_token_amount: number;
+        receive_token_amount: number;
+    };
+    actual: {
+        pay_token_amount: number;
+        receive_token_amount: number;
+    };
+    detail_url: string;
+    status: 'pending' | 'completed';
+    create_at: number;
+    from_gas: {
+        native_token: TokenItem;
+        gas_amount: number;
+        usd_gas_fee: number;
+        gas_price: number;
+    };
+}
+export interface DbkBridgeHistoryItem {
+    user_addr: string;
+    from_chain_id: string;
+    to_chain_id: string;
+    is_deposit: boolean;
+    tx_id: string;
+    create_at: number;
+    from_token_amount: number;
+    from_token_id: string;
 }
 export {};
