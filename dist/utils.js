@@ -1,5 +1,5 @@
 import { isNil, keyBy, omitBy } from 'lodash';
-import { CHAINS } from '@luxwallet/common';
+import { CHAINS } from '@luxfi/common';
 import { decode } from 'qss';
 const chainsDict = keyBy(CHAINS, 'serverId');
 export const getChain = (chainId) => {

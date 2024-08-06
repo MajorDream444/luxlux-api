@@ -1,7 +1,7 @@
 import { AxiosAdapter, AxiosRequestConfig } from 'axios';
 import { RateLimitedAxiosInstance } from 'axios-rate-limit';
 import { InitOptions, luxApiPlugin } from './plugins/intf';
-import { AddrDescResponse, ApprovalStatus, AssetItem, BasicDappInfo, CEXQuote, Cex, ChainListItem, ChainWithPendingCount, Collection, CollectionList, CollectionWithFloorPrice, ComplexProtocol, ContractCredit, ExplainTxResponse, ExplainTypedDataResponse, GasLevel, GetTxResponse, HistoryCurve, LatestExplainTxResponse, MempoolCheckDetail, NFTApprovalResponse, NFTItem, NodeStatus, NodeStatusDetail, ParseTextResponse, ParseTxResponse, ParseTypedDataResponse, PendingTxItem, Protocol, SecurityCheckResponse, ServerChain, SlippageStatus, Summary, SupportedChain, SwapTradeList, TokenApproval, TokenItem, TotalBalanceResponse, Tx, TxAllHistoryResult, TxHistoryResult, TxPushType, TxRequest, UsedChain } from './types';
+import { AddrDescResponse, BridgeAggregator, ApprovalStatus, AssetItem, BasicDappInfo, CEXQuote, Cex, ChainListItem, ChainWithPendingCount, Collection, CollectionList, CollectionWithFloorPrice, ComplexProtocol, ContractCredit, DbkBridgeHistoryItem, ExplainTxResponse, ExplainTypedDataResponse, GasLevel, GetTxResponse, HistoryCurve, LatestExplainTxResponse, MempoolCheckDetail, NFTApprovalResponse, NFTItem, NodeStatus, NodeStatusDetail, ParseTextResponse, ParseTxResponse, ParseTypedDataResponse, PendingTxItem, Protocol, SecurityCheckResponse, ServerChain, SlippageStatus, Summary, SupportedChain, SwapTradeList, TokenApproval, TokenItem, TotalBalanceResponse, Tx, TxAllHistoryResult, TxHistoryResult, TxPushType, TxRequest, UsedChain, BridgeTokenPair, BridgeQuote, BridgeHistory } from './types';
 interface OpenApiStore {
     host: string;
     testnetHost?: string;
@@ -118,6 +118,7 @@ export declare class OpenApiService {
         pay_token_raw_amount: string;
         receive_token_id: string;
         slippage?: string | number;
+        fee?: boolean;
     }) => Promise<{
         receive_token_raw_amount: number;
         dex_approve_to: string;
@@ -482,20 +483,20 @@ export declare class OpenApiService {
     getHotDapps: (params?: {
         limit: number;
     }) => Promise<BasicDappInfo[]>;
-    getluxClaimText: (params: {
+    getRabbyClaimText: (params: {
         id: string;
         invite_code?: string;
     }) => Promise<{
         id: string;
         text: string;
     }>;
-    getluxSignatureText: (params: {
+    getRabbySignatureText: (params: {
         id: string;
     }) => Promise<{
         id: string;
         text: string;
     }>;
-    getluxPoints: (params: {
+    getRabbyPoints: (params: {
         id: string;
     }) => Promise<{
         id: string;
@@ -506,37 +507,37 @@ export declare class OpenApiService {
         claimed_points: number;
         total_claimed_points: number;
     }>;
-    checkluxPointsInviteCode: (params: {
+    checkRabbyPointsInviteCode: (params: {
         code: string;
     }) => Promise<{
         invite_code_exist: boolean;
     }>;
-    setluxPointsInviteCode: (params: {
+    setRabbyPointsInviteCode: (params: {
         id: string;
         signature: string;
         invite_code: string;
     }) => Promise<{
         code: number;
     }>;
-    checkluxPointClaimable: (params: {
+    checkRabbyPointClaimable: (params: {
         id: string;
     }) => Promise<{
         claimable: boolean;
     }>;
-    getluxPointsSnapshot: (params: {
+    getRabbyPointsSnapshot: (params: {
         id: string;
     }) => Promise<{
         id: string;
         address_balance: number;
         metamask_swap: number;
-        lux_old_user: number;
-        lux_nadge: number;
-        lux_nft: number;
+        rabby_old_user: number;
+        rabby_nadge: number;
+        rabby_nft: number;
         extra_bouns: number;
         claimed: boolean;
         snapshot_at: number;
     }>;
-    claimluxPointsSnapshot: (params: {
+    claimRabbyPointsSnapshot: (params: {
         id: string;
         signature: string;
         invite_code?: string;
@@ -544,7 +545,7 @@ export declare class OpenApiService {
         error_code: number;
         error_msg?: string;
     }>;
-    getluxPointsTopUsers: (params: {
+    getRabbyPointsTopUsers: (params: {
         id: string;
     }) => Promise<{
         id: string;
@@ -553,7 +554,7 @@ export declare class OpenApiService {
         web3_id: string;
         claimed_points: number;
     }[]>;
-    getluxPointsList: (params: {
+    getRabbyPointsList: (params: {
         id: string;
     }) => Promise<{
         id: number;
@@ -563,17 +564,17 @@ export declare class OpenApiService {
         end_at: number;
         claimable_points: number;
     }[]>;
-    getluxPointsCampaignIsEnded: () => Promise<{
+    getRabbyPointsCampaignIsEnded: () => Promise<{
         campaign_is_ended: boolean;
     }>;
-    claimluxPointsById: (params: {
+    claimRabbyPointsById: (params: {
         campaign_id: number;
         user_id: string;
         signature: string;
     }) => Promise<{
         error_code: number;
     }>;
-    getluxPointsV2: (params: {
+    getRabbyPointsV2: (params: {
         id: string;
     }) => Promise<{
         id: string;
@@ -584,32 +585,32 @@ export declare class OpenApiService {
         claimed_points: number;
         total_claimed_points: number;
     }>;
-    getluxSignatureTextV2: (params: {
+    getRabbySignatureTextV2: (params: {
         id: string;
     }) => Promise<{
         id: string;
         text: string;
     }>;
-    getluxClaimTextV2: (params: {
+    getRabbyClaimTextV2: (params: {
         id: string;
         invite_code?: string;
     }) => Promise<{
         id: string;
         text: string;
     }>;
-    setluxPointsInviteCodeV2: (params: {
+    setRabbyPointsInviteCodeV2: (params: {
         id: string;
         signature: string;
         invite_code: string;
     }) => Promise<{
         code: number;
     }>;
-    checkluxPointsInviteCodeV2: (params: {
+    checkRabbyPointsInviteCodeV2: (params: {
         code: string;
     }) => Promise<{
         invite_code_exist: boolean;
     }>;
-    claimluxPointsSnapshotV2: (params: {
+    claimRabbyPointsSnapshotV2: (params: {
         id: string;
         signature: string;
         invite_code?: string;
@@ -617,7 +618,7 @@ export declare class OpenApiService {
         error_code: number;
         error_msg?: string;
     }>;
-    getluxPointsTopUsersV2: (params: {
+    getRabbyPointsTopUsersV2: (params: {
         id: string;
     }) => Promise<{
         id: string;
@@ -626,7 +627,7 @@ export declare class OpenApiService {
         web3_id: string;
         claimed_points: number;
     }[]>;
-    getluxPointsListV2: (params: {
+    getRabbyPointsListV2: (params: {
         id: string;
     }) => Promise<{
         id: number;
@@ -636,14 +637,14 @@ export declare class OpenApiService {
         end_at: number;
         claimable_points: number;
     }[]>;
-    claimluxPointsByIdV2: (params: {
+    claimRabbyPointsByIdV2: (params: {
         campaign_id: number;
         user_id: string;
         signature: string;
     }) => Promise<{
         error_code: number;
     }>;
-    getluxPointsSnapshotV2: (params: {
+    getRabbyPointsSnapshotV2: (params: {
         id: string;
     }) => Promise<{
         id: string;
@@ -654,7 +655,7 @@ export declare class OpenApiService {
         snapshot_at: number;
         claimed_points: number;
     }>;
-    checkluxPointClaimableV2: (params: {
+    checkRabbyPointClaimableV2: (params: {
         id: string;
     }) => Promise<{
         claimable: boolean;
@@ -665,7 +666,7 @@ export declare class OpenApiService {
         claimable_points: number;
         claimed_points: number;
     }>;
-    getluxPointsCampaignIsEndedV2: () => Promise<{
+    getRabbyPointsCampaignIsEndedV2: () => Promise<{
         campaign_is_ended: boolean;
     }>;
     getSupportedChains: () => Promise<SupportedChain[]>;
@@ -722,6 +723,73 @@ export declare class OpenApiService {
     getAddressByDeBankId: (name: string) => Promise<{
         addr: string;
         web3_id: string;
+    }>;
+    getBridgeSupportChain: () => Promise<string[]>;
+    getBridgeAggregatorList: () => Promise<BridgeAggregator[]>;
+    getBridgePairList: (params: {
+        aggregator_ids: string[];
+        to_chain_id: string;
+        user_addr: string;
+    }) => Promise<BridgeTokenPair[]>;
+    getBridgeQuoteList: (params: {
+        aggregator_ids: string;
+        user_addr: string;
+        from_chain_id: string;
+        from_token_id: string;
+        from_token_raw_amount: string;
+        to_chain_id: string;
+        to_token_id: string;
+    }) => Promise<Omit<BridgeQuote, 'tx'>[]>;
+    getBridgeQuote: (params: {
+        aggregator_id: string;
+        bridge_id: string;
+        user_addr: string;
+        from_chain_id: string;
+        from_token_id: string;
+        from_token_raw_amount: string;
+        to_chain_id: string;
+        to_token_id: string;
+    }) => Promise<BridgeQuote>;
+    getBridgeHistoryList: (params: {
+        user_addr: string;
+        start: number;
+        limit: number;
+    }) => Promise<{
+        history_list: BridgeHistory[];
+        total_cnt: number;
+    }>;
+    postBridgeHistory: (params: {
+        aggregator_id: string;
+        bridge_id: string;
+        from_chain_id: string;
+        from_token_id: string;
+        from_token_amount: string | number;
+        to_chain_id: string;
+        to_token_id: string;
+        to_token_amount: string | number;
+        tx_id: string;
+        tx: Tx;
+        rabby_fee: number;
+    }) => Promise<{
+        success: boolean;
+    }>;
+    getSupportedDEXList: () => Promise<{
+        dex_list: string[];
+    }>;
+    createDbkBridgeHistory: (postData: Pick<DbkBridgeHistoryItem, 'user_addr' | 'from_chain_id' | 'to_chain_id' | 'tx_id' | 'from_token_amount'>) => Promise<{
+        success: boolean;
+    }>;
+    getDbkBridgeHistoryList: (params: {
+        user_addr: string;
+        start?: number;
+        limit?: number;
+    }) => Promise<{
+        page: {
+            total: number;
+            limit: number;
+            start: number;
+        };
+        data: DbkBridgeHistoryItem[];
     }>;
 }
 export {};

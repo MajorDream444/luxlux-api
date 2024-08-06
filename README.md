@@ -3,14 +3,14 @@
 ## Install
 
 ```bash
-npm install @luxwallet/lux-api @luxwallet/common
+npm install @luxfi/lux-api @luxfi/common
 ```
 
 ## Usage
 
 ```ts
-import { OpenApiService } from '@luxwallet/lux-api';
-import { WebSignApiPlugin } from '@luxwallet/lux-api/dist/plugins/web-sign.ts';
+import { OpenApiService } from '@luxfi/lux-api';
+import { WebSignApiPlugin } from '@luxfi/lux-api/dist/plugins/web-sign.ts';
 
 const service = new OpenApiService({
   store: {
