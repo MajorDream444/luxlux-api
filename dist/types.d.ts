@@ -1197,8 +1197,8 @@ export interface NodeStatus {
     tags: string[];
     official_node_height: number;
     official_node_timestamp: number;
-    rabby_node_height: number;
-    rabby_data_service_height: number;
+    lux_node_height: number;
+    lux_data_service_height: number;
     chain: {
         id: string;
         network_id: number;
@@ -1226,8 +1226,8 @@ interface NodeDetails {
     tag: string[];
 }
 export interface NodeStatusDetail {
-    rabby_rpc: NodeServiceData[];
-    rabby_data_service: NodeServiceData[];
+    lux_rpc: NodeServiceData[];
+    lux_data_service: NodeServiceData[];
 }
 interface BridgeItem {
     id: string;
@@ -1263,7 +1263,7 @@ export interface BridgeQuote {
         raw_amount_hex_str: string;
         usd_value: number;
     };
-    rabby_fee: {
+    lux_fee: {
         raw_amount_hex_str: string;
         usd_value: number;
     };

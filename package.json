@@ -1,6 +1,6 @@
 {
   "name": "@luxwallet/lux-api",
-  "version": "1.8.19",
+  "version": "1.8.17",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -49,5 +49,9 @@
   "license": "UNLICENSED",
   "lint-staged": {
     "*.{ts,css,md}": "prettier --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\\"
   }
 }

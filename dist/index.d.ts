@@ -483,20 +483,20 @@ export declare class OpenApiService {
     getHotDapps: (params?: {
         limit: number;
     }) => Promise<BasicDappInfo[]>;
-    getRabbyClaimText: (params: {
+    getluxClaimText: (params: {
         id: string;
         invite_code?: string;
     }) => Promise<{
         id: string;
         text: string;
     }>;
-    getRabbySignatureText: (params: {
+    getLuxSignatureText: (params: {
         id: string;
     }) => Promise<{
         id: string;
         text: string;
     }>;
-    getRabbyPoints: (params: {
+    getLuxPoints: (params: {
         id: string;
     }) => Promise<{
         id: string;
@@ -507,37 +507,37 @@ export declare class OpenApiService {
         claimed_points: number;
         total_claimed_points: number;
     }>;
-    checkRabbyPointsInviteCode: (params: {
+    checkLuxPointsInviteCode: (params: {
         code: string;
     }) => Promise<{
         invite_code_exist: boolean;
     }>;
-    setRabbyPointsInviteCode: (params: {
+    setLuxPointsInviteCode: (params: {
         id: string;
         signature: string;
         invite_code: string;
     }) => Promise<{
         code: number;
     }>;
-    checkRabbyPointClaimable: (params: {
+    checkLuxPointClaimable: (params: {
         id: string;
     }) => Promise<{
         claimable: boolean;
     }>;
-    getRabbyPointsSnapshot: (params: {
+    getLuxPointsSnapshot: (params: {
         id: string;
     }) => Promise<{
         id: string;
         address_balance: number;
         metamask_swap: number;
-        rabby_old_user: number;
-        rabby_nadge: number;
-        rabby_nft: number;
+        lux_old_user: number;
+        lux_nadge: number;
+        lux_nft: number;
         extra_bouns: number;
         claimed: boolean;
         snapshot_at: number;
     }>;
-    claimRabbyPointsSnapshot: (params: {
+    claimLuxPointsSnapshot: (params: {
         id: string;
         signature: string;
         invite_code?: string;
@@ -545,7 +545,7 @@ export declare class OpenApiService {
         error_code: number;
         error_msg?: string;
     }>;
-    getRabbyPointsTopUsers: (params: {
+    getLuxPointsTopUsers: (params: {
         id: string;
     }) => Promise<{
         id: string;
@@ -554,7 +554,7 @@ export declare class OpenApiService {
         web3_id: string;
         claimed_points: number;
     }[]>;
-    getRabbyPointsList: (params: {
+    getLuxPointsList: (params: {
         id: string;
     }) => Promise<{
         id: number;
@@ -564,17 +564,17 @@ export declare class OpenApiService {
         end_at: number;
         claimable_points: number;
     }[]>;
-    getRabbyPointsCampaignIsEnded: () => Promise<{
+    getLuxPointsCampaignIsEnded: () => Promise<{
         campaign_is_ended: boolean;
     }>;
-    claimRabbyPointsById: (params: {
+    claimLuxPointsById: (params: {
         campaign_id: number;
         user_id: string;
         signature: string;
     }) => Promise<{
         error_code: number;
     }>;
-    getRabbyPointsV2: (params: {
+    getLuxPointsV2: (params: {
         id: string;
     }) => Promise<{
         id: string;
@@ -585,32 +585,32 @@ export declare class OpenApiService {
         claimed_points: number;
         total_claimed_points: number;
     }>;
-    getRabbySignatureTextV2: (params: {
+    getLuxSignatureTextV2: (params: {
         id: string;
     }) => Promise<{
         id: string;
         text: string;
     }>;
-    getRabbyClaimTextV2: (params: {
+    getluxClaimTextV2: (params: {
         id: string;
         invite_code?: string;
     }) => Promise<{
         id: string;
         text: string;
     }>;
-    setRabbyPointsInviteCodeV2: (params: {
+    setLuxPointsInviteCodeV2: (params: {
         id: string;
         signature: string;
         invite_code: string;
     }) => Promise<{
         code: number;
     }>;
-    checkRabbyPointsInviteCodeV2: (params: {
+    checkLuxPointsInviteCodeV2: (params: {
         code: string;
     }) => Promise<{
         invite_code_exist: boolean;
     }>;
-    claimRabbyPointsSnapshotV2: (params: {
+    claimLuxPointsSnapshotV2: (params: {
         id: string;
         signature: string;
         invite_code?: string;
@@ -618,7 +618,7 @@ export declare class OpenApiService {
         error_code: number;
         error_msg?: string;
     }>;
-    getRabbyPointsTopUsersV2: (params: {
+    getLuxPointsTopUsersV2: (params: {
         id: string;
     }) => Promise<{
         id: string;
@@ -627,7 +627,7 @@ export declare class OpenApiService {
         web3_id: string;
         claimed_points: number;
     }[]>;
-    getRabbyPointsListV2: (params: {
+    getLuxPointsListV2: (params: {
         id: string;
     }) => Promise<{
         id: number;
@@ -637,14 +637,14 @@ export declare class OpenApiService {
         end_at: number;
         claimable_points: number;
     }[]>;
-    claimRabbyPointsByIdV2: (params: {
+    claimLuxPointsByIdV2: (params: {
         campaign_id: number;
         user_id: string;
         signature: string;
     }) => Promise<{
         error_code: number;
     }>;
-    getRabbyPointsSnapshotV2: (params: {
+    getLuxPointsSnapshotV2: (params: {
         id: string;
     }) => Promise<{
         id: string;
@@ -655,7 +655,7 @@ export declare class OpenApiService {
         snapshot_at: number;
         claimed_points: number;
     }>;
-    checkRabbyPointClaimableV2: (params: {
+    checkLuxPointClaimableV2: (params: {
         id: string;
     }) => Promise<{
         claimable: boolean;
@@ -666,7 +666,7 @@ export declare class OpenApiService {
         claimable_points: number;
         claimed_points: number;
     }>;
-    getRabbyPointsCampaignIsEndedV2: () => Promise<{
+    getLuxPointsCampaignIsEndedV2: () => Promise<{
         campaign_is_ended: boolean;
     }>;
     getSupportedChains: () => Promise<SupportedChain[]>;
@@ -769,7 +769,7 @@ export declare class OpenApiService {
         to_token_amount: string | number;
         tx_id: string;
         tx: Tx;
-        rabby_fee: number;
+        lux_fee: number;
     }) => Promise<{
         success: boolean;
     }>;
